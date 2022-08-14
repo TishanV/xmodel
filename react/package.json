@@ -1,15 +1,11 @@
 {
-  "name": "@react/model",
+  "name": "@xmodel/react",
   "version": "1.0.0",
   "description": "A simple React library for maintaining complex states",
   "main": "dist/index.js",
   "files": [
     "dist/**/*"
   ],
-  "scripts": {
-    "build": "yarn clean && tsc",
-    "clean": "rm -rf dist"
-  },
   "dependencies": {
     "react": "^18.2.0",
     "valtio": "^1.6.3"
@@ -18,7 +14,11 @@
     "react": "^18.2.0",
     "valtio": "^1.6.3"
   },
-  "author": "TishanV",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TishanV/xmodel/tree/main/react"
+  },
+  "author": "tiscodes",
   "license": "MIT",
   "keywords": [
     "react",

@@ -1,22 +1,22 @@
 {
-  "name": "@svelte/model",
+  "name": "@xmodel/svelte",
   "version": "1.0.0",
   "description": "A simple Svelte library for maintaining complex states",
   "main": "dist/index.js",
   "files": [
     "dist/**/*"
   ],
-  "scripts": {
-    "build": "yarn clean && tsc",
-    "clean": "rm -rf dist"
-  },
   "devDependencies": {
     "svelte": "^3.49.0"
   },
   "peerDependencies": {
     "svelte": "^3.49.0"
   },
-  "author": "TishanV",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TishanV/xmodel/tree/main/svelte"
+  },
+  "author": "tiscodes",
   "license": "MIT",
   "keywords": [
     "svelte",
