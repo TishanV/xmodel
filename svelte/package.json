@@ -1,5 +1,5 @@
 {
-  "name": "@xmodel/svelte",
+  "name": "xmodel-svelte",
   "version": "1.0.0",
   "description": "A simple Svelte library for maintaining complex states",
   "main": "dist/index.js",

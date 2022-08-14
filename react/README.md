@@ -6,9 +6,9 @@ Published Date: 14 Aug 2022 (v1.0.0)
 Visit Github page for other frameworks (Solid.js, Svelte).
 
 ```bash
-    npm i @xmodel/react
+    npm i xmodel-react
     # or 
-    yarn add @xmodel/react
+    yarn add xmodel-react
 ```
 ---
 ## Advantages
@@ -68,7 +68,7 @@ This function is used to convert your model class into reactive state which can 
 
 ```typescript
 // ./models/Todo.ts
-import { Model } from "@xmodel/react";
+import { Model } from "xmodel-react";
 
 class Todo extends Model {
     task: string;
@@ -95,7 +95,7 @@ export default Todo;
 
 ```typescript
 // ./models/TodoList.ts
-import { ArrayModel } from "@xmodel/react";
+import { ArrayModel } from "xmodel-react";
 import Todo from "./Todo";
 
 class TodoList extends ArrayModel<Todo> {
@@ -128,7 +128,7 @@ import TodoTask from "./components/TodoTask";
 
 import TodoList from "./models/TodoList";
 
-import { useModel } from "@xmodel/react";
+import { useModel } from "xmodel-react";
 
 const todos = useModel(TodoList);
 

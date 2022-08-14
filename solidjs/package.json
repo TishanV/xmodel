@@ -1,5 +1,5 @@
 {
-  "name": "@xmodel/solidjs",
+  "name": "xmodel-solidjs",
   "version": "1.0.0",
   "description": "A simple Solid.js library for maintaining complex states",
   "main": "dist/index.js",

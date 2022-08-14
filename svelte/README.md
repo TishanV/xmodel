@@ -6,9 +6,9 @@ Published Date: 14 Aug 2022 (v1.0.0)
 Visit Github page for other frameworks (React, Solid.js).
 
 ```bash
-    npm i @xmodel/svelte
+    npm i xmodel-svelte
     # or 
-    yarn add @xmodel/svelte
+    yarn add xmodel-svelte
 ```
 ---
 ## Advantages
@@ -68,7 +68,7 @@ This function is used to convert your model class into reactive state which can 
 
 ```typescript
 // ./models/Todo.ts
-import { Model } from "@xmodel/solidjs";
+import { Model } from "xmodel-svelte";
 
 class Todo extends Model {
     task: string;
@@ -95,7 +95,7 @@ export default Todo;
 
 ```typescript
 // ./models/TodoList.ts
-import { ArrayModel } from "@xmodel/solidjs";
+import { ArrayModel } from "xmodel-svelte";
 import Todo from "./Todo";
 
 class TodoList extends ArrayModel<Todo> {
@@ -122,7 +122,7 @@ export default TodoList;
 ```typescript
 // ./App.svelte
 <script lang="ts">
-  import { useModel } from "@svelte/model";
+  import { useModel } from "xmodel-svelte";
   import TodoList from "./models/TodoList";
   import TodoView from "./lib/Todo.svelte";
 

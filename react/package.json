@@ -1,5 +1,5 @@
 {
-  "name": "@xmodel/react",
+  "name": "xmodel-react",
   "version": "1.0.0",
   "description": "A simple React library for maintaining complex states",
   "main": "dist/index.js",
