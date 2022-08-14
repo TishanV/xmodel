@@ -1,0 +1,30 @@
+{
+  "name": "@svelte/model",
+  "version": "1.0.0",
+  "description": "A simple Svelte library for maintaining complex states",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "svelte": "^3.49.0"
+  },
+  "peerDependencies": {
+    "svelte": "^3.49.0"
+  },
+  "author": "TishanV",
+  "license": "MIT",
+  "keywords": [
+    "svelte",
+    "state",
+    "store",
+    "model",
+    "state management",
+    "complex store",
+    "oop"
+  ]
+}

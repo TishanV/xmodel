@@ -1,0 +1,33 @@
+{
+  "name": "@react/model",
+  "version": "1.0.0",
+  "description": "A simple React library for maintaining complex states",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "valtio": "^1.6.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "valtio": "^1.6.3"
+  },
+  "author": "TishanV",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hook",
+    "state",
+    "store",
+    "model",
+    "state management",
+    "complex store",
+    "oop"
+  ]
+}

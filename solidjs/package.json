@@ -1,0 +1,31 @@
+{
+  "name": "@solidjs/model",
+  "version": "1.0.0",
+  "description": "A simple Solid.js library for maintaining complex states",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "solid-js": "^1.4.7"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.4.7"
+  },
+  "author": "TishanV",
+  "license": "MIT",
+  "keywords": [
+    "solid",
+    "solidjs",
+    "state",
+    "store",
+    "model",
+    "state management",
+    "complex store",
+    "oop"
+  ]
+}
