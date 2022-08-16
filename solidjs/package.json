@@ -1,7 +1,7 @@
 {
   "name": "xmodel-solidjs",
-  "version": "1.0.0",
-  "description": "A simple Solid.js library for maintaining complex states",
+  "version": "1.0.2",
+  "description": "OOP style state management for Solid.js",
   "main": "dist/index.js",
   "files": [
     "dist/**/*"

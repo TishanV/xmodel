@@ -35,7 +35,7 @@ class PrimitiveModel extends Model {
   }
 }
 
-function useModel(ModelClass, args=[]) {
+function useModel(ModelClass, args = []) {
   const modelObject = new ModelClass(...args);
   if (!(modelObject instanceof Model))
     throw "Only models can be passed to useModel. Make sure your model extends Model class";
@@ -47,15 +47,58 @@ function useModel(ModelClass, args=[]) {
 
 const pureObject = (obj) => JSON.parse(JSON.stringify(obj));
 
-const methodNames = (obj) =>
-  Object.getOwnPropertyNames(Object.getPrototypeOf(obj)).filter(
-    (m) => m !== "constructor" && obj[m] instanceof Function
+const methodNames = (obj, methods = []) => {
+  const objProto = Object.getPrototypeOf(obj);
+  methods.push(
+    ...Object.getOwnPropertyNames(objProto).filter(
+      (m) => m !== "constructor" && obj[m] instanceof Function
+    )
   );
+  if (
+    Object.getPrototypeOf(objProto) !== Model.prototype &&
+    Object.getPrototypeOf(objProto) !== ArrayModel.prototype &&
+    Object.getPrototypeOf(objProto) !== PrimitiveModel.prototype
+  )
+    methodNames(objProto, methods);
+  return Array.from(new Set(methods));
+};
 
-const getterNames = (obj) =>
-  Object.getOwnPropertyNames(Object.getPrototypeOf(obj)).filter(
+const getterNames = (obj, getters = []) => {
+  const objProto = Object.getPrototypeOf(obj);
+  getters.push(
+    ...Object.getOwnPropertyNames(objProto).filter(
+      (m) => !(obj[m] instanceof Function)
+    )
+  );
+  if (
+    Object.getPrototypeOf(objProto) !== Model.prototype &&
+    Object.getPrototypeOf(objProto) !== ArrayModel.prototype &&
+    Object.getPrototypeOf(objProto) !== PrimitiveModel.prototype
+  )
+    getterNames(objProto, getters);
+  return Array.from(new Set(getters));
+};
+
+const getterFunctions = (obj, getters = {}) => {
+  const objProto = Object.getPrototypeOf(obj);
+  const getterNames = Object.getOwnPropertyNames(objProto).filter(
     (m) => !(obj[m] instanceof Function)
   );
+  for (let getterName of getterNames) {
+    if (getterName in getters) continue;
+    getters[getterName] = Object.getOwnPropertyDescriptor(
+      objProto,
+      getterName
+    ).get;
+  }
+  if (
+    Object.getPrototypeOf(objProto) !== Model.prototype &&
+    Object.getPrototypeOf(objProto) !== ArrayModel.prototype &&
+    Object.getPrototypeOf(objProto) !== PrimitiveModel.prototype
+  )
+    getterFunctions(objProto, getters);
+  return getters;
+};
 
 const fieldNames = (obj) => [
   ...Object.getOwnPropertyNames(obj),
@@ -86,12 +129,9 @@ function capture(obj, map = {}) {
       map[fieldName] = field;
     }
   }
-  for (let getterName of getterNames(obj)) {
-    const getter = Object.getOwnPropertyDescriptor(
-      Object.getPrototypeOf(obj),
-      getterName
-    )?.get;
-    defineGet(map, getterName, getter);
+  const getters = getterFunctions(obj);
+  for (let getterName in getters) {
+    defineGet(map, getterName, getters[getterName]);
   }
   return map;
 }
@@ -153,4 +193,3 @@ const getModelField = (field) =>
     : {};
 
 export { Model, ArrayModel, PrimitiveModel, useModel };
-

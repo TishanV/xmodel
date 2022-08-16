@@ -1,7 +1,7 @@
 {
   "name": "xmodel-react",
-  "version": "1.0.0",
-  "description": "A simple React library for maintaining complex states",
+  "version": "1.0.2",
+  "description": "OOP style state management for React",
   "main": "dist/index.js",
   "files": [
     "dist/**/*"

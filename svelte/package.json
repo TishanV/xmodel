@@ -1,7 +1,7 @@
 {
   "name": "xmodel-svelte",
-  "version": "1.0.0",
-  "description": "A simple Svelte library for maintaining complex states",
+  "version": "1.0.2",
+  "description": "OOP style state management for Svelte",
   "main": "dist/index.js",
   "files": [
     "dist/**/*"

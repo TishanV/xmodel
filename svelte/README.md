@@ -1,5 +1,5 @@
 # Xmodel for Svelte
-Published Date: 14 Aug 2022 (v1.0.0)
+Published Date: 16 Aug 2022 (v1.0.2)
 
 > **Only for Svelte apps.**
 
